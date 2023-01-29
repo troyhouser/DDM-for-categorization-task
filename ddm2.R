@@ -281,13 +281,3 @@ ggplot(bic,aes(x=model,y=BIC,fill=model))+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-
-cat = read.csv("~/Dropbox (University of Oregon)/Troy&Dasa/TPC/version2022/cat_models_20221204.csv")
-drift_mod_thr = c()
-drift_mod_non = c()
-for(i in 1:72){
-  drift_mod_thr[i] = data1_dri[[i]]$par[6]
-  drift_mod_non[i] = data1_dri[[i]]$par[7]
-}
-t.test(drift_mod_thr[cat$strategy==1],drift_mod_thr[cat$strategy==2])
-t.test(drift_mod_non[cat$strategy==1],drift_mod_non[cat$strategy==2])
